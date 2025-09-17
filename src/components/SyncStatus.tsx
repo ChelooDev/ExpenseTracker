@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { useExpense } from '../context/ExpenseContext';
 
 export default function SyncStatus() {

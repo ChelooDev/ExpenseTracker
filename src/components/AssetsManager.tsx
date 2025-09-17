@@ -127,14 +127,14 @@ export default function AssetsManager() {
         setShowAssetForm(true);
     };
 
-    const handleEditCategory = (category: AssetCategory) => {
-        setEditingCategory(category);
-        setCategoryFormData({
-            name: category.name,
-            color: category.color,
-        });
-        setShowCategoryForm(true);
-    };
+    // const handleEditCategory = (category: AssetCategory) => {
+    //     setEditingCategory(category);
+    //     setCategoryFormData({
+    //         name: category.name,
+    //         color: category.color,
+    //     });
+    //     setShowCategoryForm(true);
+    // };
 
     const handleDeleteAsset = (id: string) => {
         if (window.confirm('Are you sure you want to delete this asset?')) {
@@ -142,21 +142,21 @@ export default function AssetsManager() {
         }
     };
 
-    const handleDeleteCategory = (id: string) => {
-        if (window.confirm('Are you sure you want to delete this category? This will not delete associated assets.')) {
-            dispatch({ type: 'DELETE_ASSET_CATEGORY', payload: id });
-        }
-    };
+    // const handleDeleteCategory = (id: string) => {
+    //     if (window.confirm('Are you sure you want to delete this category? This will not delete associated assets.')) {
+    //         dispatch({ type: 'DELETE_ASSET_CATEGORY', payload: id });
+    //     }
+    // };
 
-    const getCategoryName = (categoryId: string) => {
-        const category = state.assetCategories.find(c => c.id === categoryId);
-        return category?.name || 'Unknown';
-    };
+    // const getCategoryName = (categoryId: string) => {
+    //     const category = state.assetCategories.find(c => c.id === categoryId);
+    //     return category?.name || 'Unknown';
+    // };
 
-    const getCategoryColor = (categoryId: string) => {
-        const category = state.assetCategories.find(c => c.id === categoryId);
-        return category?.color || '#6b7280';
-    };
+    // const getCategoryColor = (categoryId: string) => {
+    //     const category = state.assetCategories.find(c => c.id === categoryId);
+    //     return category?.color || '#6b7280';
+    // };
 
     const totalAssetsValue = state.assets.reduce((sum, asset) => sum + asset.value, 0);
 

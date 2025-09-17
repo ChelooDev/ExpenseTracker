@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useExpense } from '../context/ExpenseContext';
 import { type Transaction } from '../context/ExpenseContext';
 import { filterTransactions } from '../utils/calculations';

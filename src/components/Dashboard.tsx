@@ -2,7 +2,7 @@ import { useExpense } from '../context/ExpenseContext';
 import { calculateTotals, getMonthComparison } from '../utils/calculations';
 import { formatCurrency } from '../utils/formatting';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import DailyQuote from './DailyQuote';
+// import DailyQuote from './DailyQuote';
 
 export default function Dashboard() {
     const { state } = useExpense();
@@ -14,12 +14,12 @@ export default function Dashboard() {
     const netWorth = totalAssetsValue + totals.balance;
 
     // Get current month data for charts
-    const now = new Date();
-    const currentMonthTransactions = state.transactions.filter(transaction => {
-        const transactionDate = new Date(transaction.date);
-        return transactionDate.getMonth() === now.getMonth() &&
-            transactionDate.getFullYear() === now.getFullYear();
-    });
+    // const now = new Date();
+    // const currentMonthTransactions = state.transactions.filter(transaction => {
+    //     const transactionDate = new Date(transaction.date);
+    //     return transactionDate.getMonth() === now.getMonth() &&
+    //         transactionDate.getFullYear() === now.getFullYear();
+    // });
 
     // Prepare data for pie chart (expenses by category)
     const expenseCategories = state.categories.filter(cat => cat.type === 'expense');

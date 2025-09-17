@@ -1,16 +1,16 @@
 import { db } from '../firebase/config';
 import {
-    collection,
+    // collection,
     doc,
     getDoc,
     setDoc,
     updateDoc,
-    deleteDoc,
-    query,
-    where,
-    orderBy,
+    // deleteDoc,
+    // query,
+    // where,
+    // orderBy,
     onSnapshot,
-    addDoc,
+    // addDoc,
     serverTimestamp
 } from 'firebase/firestore';
 import type { Transaction, Category, Budget, Asset, AssetCategory } from '../types';
@@ -75,16 +75,19 @@ const cleanUserDataForFirestore = (data: any): any => {
 
 // Save user data to Firestore
 export const saveUserData = async (userId: string, data: UserData): Promise<void> => {
+    let cleanedData: any = null;
     try {
         const userDoc = getUserDoc(userId);
-        const cleanedData = cleanUserDataForFirestore(data);
+        cleanedData = cleanUserDataForFirestore(data);
         await setDoc(userDoc, {
             ...cleanedData,
             lastUpdated: serverTimestamp()
         });
     } catch (error) {
         console.error('Error saving user data:', error);
-        console.error('Data being saved:', JSON.stringify(cleanedData, null, 2));
+        if (cleanedData) {
+            console.error('Data being saved:', JSON.stringify(cleanedData, null, 2));
+        }
         throw error;
     }
 };

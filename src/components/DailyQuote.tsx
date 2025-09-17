@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import dailyQuotes from '../data/quotes';
 import type { Quote } from '../types';
 
