@@ -18,7 +18,10 @@ export default function ExpenseList({ onEdit }: ExpenseListProps) {
         dateTo: '',
     });
 
-    const filteredTransactions = filterTransactions(state.transactions, filters);
+    const filteredTransactions = filterTransactions(state.transactions, {
+        ...filters,
+        type: filters.type === '' ? undefined : filters.type as 'income' | 'expense'
+    });
 
     const handleDelete = (id: string) => {
         if (window.confirm('Are you sure you want to delete this transaction?')) {

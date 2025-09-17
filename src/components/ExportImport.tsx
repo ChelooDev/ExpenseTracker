@@ -82,6 +82,7 @@ export default function ExportImport() {
         if (window.confirm('Are you sure you want to clear all data? This action cannot be undone.')) {
             dispatch({
                 type: 'LOAD_DATA', payload: {
+                    budgets: [],
                     transactions: [],
                     categories: state.categories,
                     assets: [],

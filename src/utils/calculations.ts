@@ -67,12 +67,12 @@ export function calculateBudgetUsage(transactions: Transaction[], budgets: Budge
 
     budgets.forEach(budget => {
         const categoryTransactions = monthlyTransactions.filter(
-            t => t.category === budget.categoryId && t.type === 'expense'
+            t => t.category === budget.category && t.type === 'expense'
         );
         const used = categoryTransactions.reduce((sum, t) => sum + t.amount, 0);
         const percentage = budget.amount > 0 ? (used / budget.amount) * 100 : 0;
 
-        usage[budget.categoryId] = {
+        usage[budget.category] = {
             used,
             budget: budget.amount,
             percentage: Math.min(percentage, 100),

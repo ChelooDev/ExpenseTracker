@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ExpenseProvider, useExpense } from './context/ExpenseContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Dashboard from './components/Dashboard';
@@ -157,7 +157,7 @@ function AppContent() {
       {/* Expense Form Modal */}
       {showExpenseForm && (
         <ExpenseForm
-          transaction={editingTransaction}
+          transaction={editingTransaction || undefined}
           onClose={handleCloseExpenseForm}
         />
       )}
